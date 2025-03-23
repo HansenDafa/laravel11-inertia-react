@@ -33,7 +33,7 @@ export default function Dashboard({ auth, datasets }) {
                             //     {post.body}
                             // </div>
                             )
-                        })};
+                        })}
                     </div>
                 </div>
             </div>

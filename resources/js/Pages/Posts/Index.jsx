@@ -15,27 +15,43 @@ export default function Dashboard({ auth, posts }) {
                 <meta name="description" content="Posts Index" />
             </Head>
 
+
+
             <div className="py-12">
-                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                
+                <div className="mx-auto max-w-3xl sm:px-6 lg:px-8 space-y-3">
+
+                    <form action="" className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+                        <label htmlFor="body" className="sr-only" placeholer="body">
+                            Body
+                        </label>
+                        <textarea name="body" 
+                        id="body"
+                        cols='30'
+                        rows='5'
+                        class='border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full'>
+                            Body
+                        </textarea>
+                        <button className="mt-2 bg-gray-700 px-4 py-2 rounded-md font-medium text-white">
+                            Post
+                        </button>
+                    </form>
+                    
                         {posts.data.map((post) => {
                             return(
-
-                                <div key={post.id}>
-                                <div className="class font-semibold">
-                                    {post.user.name}
+                                <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg mt-6">
+                                <div className="p-6 text-gray-900">
+                                    <div className="font-semibold">
+                                        {post.user.name}
+                                    </div>
+                                    <p className="mt-1">{post.body}</p>
                                 </div>
-                                <p className="class mt-1">{post.body}</p>
                                 </div>
-                            //     <div className="p-6 text-gray-900" key={(post.id)}>
-                            //     {post.body}
-                            // </div>
                             )
-                        })};
+                        })}
 
                     </div>
                 </div>
-            </div>
         </AuthenticatedLayout>
     );
 }
