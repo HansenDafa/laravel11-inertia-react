@@ -36,6 +36,12 @@ export default function AuthenticatedLayout({ header, children }) {
                                 >
                                     Posts
                                 </NavLink>
+                                <NavLink
+                                    href={route('datasets.index')}
+                                    active={route().current('datasets.index')}
+                                >
+                                    Datasets
+                                </NavLink>
                             </div>
                         </div>
 
