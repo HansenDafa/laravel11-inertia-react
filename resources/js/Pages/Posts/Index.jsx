@@ -1,9 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, useForm } from '@inertiajs/react';
 
-
-
-
 export default function Dashboard({ auth, posts }) {
     const { data, setData, post, processing, errors } = useForm({
         body: '',

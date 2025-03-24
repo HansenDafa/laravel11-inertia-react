@@ -23,11 +23,11 @@ export default function Dashboard({ auth, datasets }) {
                             return(
 
                                 <div key={dataset.id}>
-                                <div className="class font-semibold">
+                                <div className="font-semibold">
                                     {dataset.user.name}
                                 </div>
-                                <p className="class mt-1">{dataset.title}</p>
-                                <p className="class mt-1">{dataset.description}</p>
+                                <p className="mt-1">{dataset.title}</p>
+                                <p className="mt-1">{dataset.description}</p>
                                 </div>
                             //     <div className="p-6 text-gray-900" key={(post.id)}>
                             //     {post.body}
