@@ -1,8 +1,21 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, useForm } from '@inertiajs/react';
+
+
+
 
 export default function Dashboard({ auth, posts }) {
+    const { data, setData, post, processing, errors } = useForm({
+        body: '',
+      })
+            
+      
+      function submit(e) {
+        e.preventDefault()
+        post(route('posts.store'))
+      }
     return (
+
         <AuthenticatedLayout
             user={auth.user}
             header={
@@ -21,15 +34,17 @@ export default function Dashboard({ auth, posts }) {
                 
                 <div className="mx-auto max-w-3xl sm:px-6 lg:px-8 space-y-3">
 
-                    <form action="" className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+                    <form onSubmit = {submit()} action="" className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                         <label htmlFor="body" className="sr-only" placeholer="body">
                             Body
                         </label>
-                        <textarea name="body" 
+                        <textarea 
+                        onChange={e =>setData('body', e.target.value)}
+                        name="body" 
                         id="body"
                         cols='30'
                         rows='5'
-                        class='border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full'>
+                        className='border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full'>
                             Body
                         </textarea>
                         <button className="mt-2 bg-gray-700 px-4 py-2 rounded-md font-medium text-white">
